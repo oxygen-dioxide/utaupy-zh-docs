@@ -8,12 +8,9 @@
 # utaupy
 [![PyPI](https://img.shields.io/pypi/v/utaupy.svg)](https://pypi.python.org/pypi/utaupy)
 
-处理UTAU相关文件的Python库。
+utaupy是处理UTAU相关文件的Python库。
 
 如果需要用Python开发UTAU插件，**[pyUtau](https://github.com/UtaUtaUtau/pyUtau)** 可能是一个更好的选择，它是 **[utauPlugin](https://github.com/delta-kimigatame/utauPlugin)** 的Python实现，为处理颤音和音高提供了方便的接口。
-
-UTAU周辺のデータ処理を行うPythonのパッケージです。READMEは書いてる途中です。
-PythonでUTAUプラグインを作りたい場合は、C# 用の **[utauPlugin](https://github.com/delta-kimigatame/utauPlugin)** をPythonに移植した **[pyUtau](https://github.com/UtaUtaUtau/pyUtau)** のほうがいいかもしれません。ビブラートやピッチの扱いが便利そうです。
 
 ## 用户协议
 参见LICENSE文件。
