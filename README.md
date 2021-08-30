@@ -27,15 +27,12 @@ utaupy是处理UTAU相关文件的Python库。
 
 ## 功能
 - 解析 INI, UST, LAB 文件，并表示为python对象
-- INI, UST, LAB 文件互转（但有很多不可逆过程）
+- INI, UST, LAB 文件互转（但这些文件类型不完全兼容，转换很可能是不可逆的）
 
 # Methods
----
 ## utaupy.ust
----
 ### Ust(collections.UserList)
-UST 文件类
-
+UST文件类
 ### load(path)
 读取UST文件，返回Ust对象
 ```Python
@@ -43,46 +40,29 @@ ustobj = utaupy.ust.load(path)
 print(type(ustobj))
 # <class 'utaupy.ust.Ust'>
 ```
----
 
 ## utaupy.otoini
-UTAUの原音設定ファイルを扱うモジュール。setParamでの利用を想定。
-
----
-
+处理UTAU原音设定的模块
 ### class utaupy.otoini.OtoIni(collections.UserList)
-
-oto.ini ファイルを扱うためのクラス。
-
----
-
+oto.ini文件类
 ### class utaupy.otoini.Oto(collections.UserDict)
-
-oto.ini に含まれる各原音のパラメータを扱うクラス。
-
----
-
+oto.ini原音设定条目类
 ## utaupy.table
-
-かなローマ字変換表などを扱うモジュール。
+假名与罗马音转换模块
 
 ## utaupy.convert
-
 Ust オブジェクト、OtoIni オブジェクト、Label オブジェクトなどを変換するモジュール。
 
 ## utaupy.reaper
-
-REAPER (DAW) のリージョン・マーカー用CSVファイルを扱うモジュール。
+处理Reaper CSV文件的模块
 
 ## utaupy.utau
-
-UTAUエディタで行う操作の代替と、UTAU音源の原音値取得などをするモジュール。「パラメータ自動調整」などができる。
+实现了UTAU编辑器从音源库中调取音频和原音设定的功能，支持自动参数调整
 
 ## utaupy.utauplugin
+用于编写UTAU插件。utaupy.utauplugin.UtauPlugin继承自utaupy.ust.Ust，为插件开发优化
 
-UTAUプラグインをつくるためのモジュール。utaupy.utauplugin.UtauPlugin クラスは utaupy.ust.Ust を継承し、プラグイン用に最適化した子クラス。
-
-示例（将每个音符身高一个半音）
+示例（将每个音符升高一个半音）
 
 ```Python
 import utaupy
@@ -92,9 +72,9 @@ def notenum_plus1(utauplugin):
     utauplugin: utaupy.utauplugin.UtauPlugin class object
     全てのノートを半音上げる
     """
-    # 全ノートを取得
+    # 获取所有音符
     notes = utauplugin.notes
-    # 半音上げ
+    # 升高一个半音
     for note in notes:
         note.notenum += 1
 
